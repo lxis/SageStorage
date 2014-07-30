@@ -8,10 +8,12 @@ import java.io.IOException;
 import java.io.PrintStream;
 
 import com.google.gson.Gson;
+import com.sage.storage.exceptions.StorageExceptionHandler;
+import com.sage.storage.exceptions.StorageNewInstanceException;
+import com.sage.storage.exceptions.StoratgeIoException;
 
 public class StorageSetting
 {
-
 	public static <T> T Get(Class<T> classType)
 	{
 		String key = classType.getName();
@@ -31,25 +33,25 @@ public class StorageSetting
 		}
 		catch (IOException e)
 		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			if (!StorageExceptionHandler.handle(e))
+				throw new StoratgeIoException(e);
 		}
 		catch (InstantiationException e)
 		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			if (!StorageExceptionHandler.handle(e))
+				throw new StoratgeIoException(e);
 		}
 		catch (IllegalAccessException e)
 		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			if (!StorageExceptionHandler.handle(e))
+				throw new StoratgeIoException(e);
 		}
 		return new Gson().fromJson(content, classType);
 	}
 
 	public static <T> void Set(T model)
 	{
-		String key =model.getClass().getName();
+		String key = model.getClass().getName();
 		try
 		{
 			FileOutputStream out;
@@ -64,7 +66,8 @@ public class StorageSetting
 		}
 		catch (IOException e)
 		{
-			e.printStackTrace();
+			if (!StorageExceptionHandler.handle(e))
+				throw new StoratgeIoException(e);
 		}
 	}
 }
