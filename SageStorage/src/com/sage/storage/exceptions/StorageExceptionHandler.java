@@ -1,5 +1,7 @@
 package com.sage.storage.exceptions;
 
+import com.sage.core.CommonSimpleHandlerGenic;
+
 public class StorageExceptionHandler
 {
 	public static boolean handle(Exception e)
