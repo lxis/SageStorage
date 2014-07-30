@@ -14,6 +14,9 @@ import com.sage.storage.exceptions.StoratgeIoException;
 
 public class StorageSetting
 {
+	/*
+	 *  Get setting from file system
+	 */
 	public static <T> T Get(Class<T> classType)
 	{
 		String key = classType.getName();
@@ -49,6 +52,9 @@ public class StorageSetting
 		return new Gson().fromJson(content, classType);
 	}
 
+	/*
+	 *  Set setting to file system
+	 */
 	public static <T> void Set(T model)
 	{
 		String key = model.getClass().getName();
