@@ -7,6 +7,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintStream;
 
+import android.content.Context;
+
 import com.google.gson.Gson;
 import com.sage.storage.exceptions.StorageExceptionHandler;
 import com.sage.storage.exceptions.StorageNewInstanceException;
@@ -14,6 +16,14 @@ import com.sage.storage.exceptions.StoratgeIoException;
 
 public class StorageSetting
 {
+	private static String BasePath;
+	
+	public static void init(Context context)
+	{
+		BasePath = context.getFilesDir().getPath().toString();
+	}
+	
+	
 	/*
 	 *  Get setting from file system
 	 */
@@ -55,9 +65,9 @@ public class StorageSetting
 	/*
 	 *  Set setting to file system
 	 */
-	public static <T> void Set(T model)
+	public static <T> void Set(T model,Context context)
 	{
-		String key = model.getClass().getName();
+		String key = BasePath + "/fileName.txt";
 		try
 		{
 			FileOutputStream out;

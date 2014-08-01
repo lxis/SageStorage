@@ -1,5 +1,7 @@
 package com.sage.storage;
 
+import android.content.Context;
+
 public class BaseSetting
 {		
 	public <T> T Get()
@@ -8,8 +10,8 @@ public class BaseSetting
 		return setting;
 	}	
 	
-	public void Set()
+	public void Set(Context context)
 	{
-		StorageSetting.Set(this);
+		StorageSetting.Set(this,context);
 	}	
 }

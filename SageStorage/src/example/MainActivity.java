@@ -22,10 +22,11 @@ public class MainActivity extends Activity
 
 	private void settings() throws StorageNewInstanceException
 	{
+		StorageSetting.init(this);
 		ShopCarSetting shopCar = new ShopCarSetting().Get();
 		shopCar.ShopCars.add(new ShopCarSetting.ShopCar(1, "Car", 100));
 		shopCar.ShopCars.add(new ShopCarSetting.ShopCar(2, "Car1", 1000));
-		shopCar.Set();
+		shopCar.Set(this);
 	}
 
 	@Override
