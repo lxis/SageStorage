@@ -10,9 +10,7 @@ import java.io.PrintStream;
 import android.content.Context;
 
 import com.google.gson.Gson;
-import com.sage.storage.exceptions.StorageExceptionHandler;
-import com.sage.storage.exceptions.StorageNewInstanceException;
-import com.sage.storage.exceptions.StoratgeIoException;
+import com.sage.storage.exceptions.*;
 
 /*
  *  Storage manager,must call init before using storage
@@ -43,14 +41,11 @@ public class StorageSetting {
 			br.close();
 			fr.close();
 		} catch (IOException e) {
-			if (!StorageExceptionHandler.handle(e))
-				throw new StoratgeIoException(e);
+			throw new StoratgeIoException(e);
 		} catch (InstantiationException e) {
-			if (!StorageExceptionHandler.handle(e))
-				throw new StoratgeIoException(e);
+			throw new StoratgeIoException(e);
 		} catch (IllegalAccessException e) {
-			if (!StorageExceptionHandler.handle(e))
-				throw new StoratgeIoException(e);
+			throw new StoratgeIoException(e);
 		}
 		return new Gson().fromJson(content, classType);
 	}
@@ -72,8 +67,7 @@ public class StorageSetting {
 			ps.close();
 			out.close();
 		} catch (IOException e) {
-			if (!StorageExceptionHandler.handle(e))
-				throw new StoratgeIoException(e);
+			throw new StoratgeIoException(e);
 		}
 	}
 }
