@@ -14,9 +14,12 @@ import com.sage.storage.exceptions.StorageExceptionHandler;
 import com.sage.storage.exceptions.StorageNewInstanceException;
 import com.sage.storage.exceptions.StoratgeIoException;
 
+/*
+ *  Storage manager,must call init before using storage
+ */
 public class StorageSetting
 {
-	private static String BasePath;
+	private static String BasePath;	
 	
 	public static void init(Context context)
 	{
