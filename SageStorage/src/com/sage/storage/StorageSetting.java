@@ -27,7 +27,7 @@ public class StorageSetting
 	/*
 	 *  Get setting from file system
 	 */
-	public static <T> T Get(Class<T> classType)
+	public static <T> T get(Class<T> classType)
 	{
 		String key = classType.getName();
 		String content = null;
@@ -65,7 +65,7 @@ public class StorageSetting
 	/*
 	 *  Set setting to file system
 	 */
-	public static <T> void Set(T model,Context context)
+	public static <T> void set(T model,Context context)
 	{
 		String key = BasePath + "/fileName.txt";
 		try

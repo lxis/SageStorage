@@ -4,14 +4,14 @@ import android.content.Context;
 
 public class BaseSetting
 {		
-	public <T> T Get()
+	public <T> T get()
 	{				
-		T setting = (T) StorageSetting.Get(this.getClass());
+		T setting = (T) StorageSetting.get(this.getClass());
 		return setting;
 	}	
 	
-	public void Set(Context context)
+	public void set(Context context)
 	{
-		StorageSetting.Set(this,context);
+		StorageSetting.set(this,context);
 	}	
 }

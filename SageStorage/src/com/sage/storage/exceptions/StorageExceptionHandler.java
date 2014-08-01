@@ -8,7 +8,7 @@ public class StorageExceptionHandler
 	{
 		if(exceptionHandler!=null)
 		{
-			exceptionHandler.Run(e);
+			exceptionHandler.run(e);
 			return true;
 		}
 		else 
