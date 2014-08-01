@@ -10,18 +10,15 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 
-public class MainActivity extends Activity
-{
+public class MainActivity extends Activity {
 	@Override
-	protected void onCreate(Bundle savedInstanceState)
-	{
+	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		settings();
 	}
 
-	private void settings() throws StorageNewInstanceException
-	{
+	private void settings() throws StorageNewInstanceException {
 		StorageSetting.init(this);
 		ShopCarSetting shopCar = new ShopCarSetting().get();
 		shopCar.ShopCars.add(new ShopCarSetting.ShopCar(1, "Car", 100));
@@ -30,8 +27,7 @@ public class MainActivity extends Activity
 	}
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu)
-	{
+	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is
 		// present.
 		getMenuInflater().inflate(R.menu.main, menu);
